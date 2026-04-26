@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvel × DC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="public/marvel.png" alt="Marvel" class="logo-marvel">
+      <span class="brand-x">×</span>
+      <img src="public/dc.png" alt="DC" class="logo-dc">
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" data-page="inicio">Início</button>
+      <button class="nav-link" data-page="buscar">Buscar</button>
+      <button class="nav-link" data-page="batalha">Batalha</button>
+      <button class="nav-link" data-page="quiz">Quiz</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── Home ────────────────────────────── -->
+    <section id="inicio" class="page active">
+      <div class="banner">
+        <img src="public/banner.png" alt="Hero Banner" class="banner-img">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+          <h1 class="banner-title">
+            <img src="public/marvel.png" alt="Marvel" class="banner-logo">
+            <img src="public/X.png" alt="VS" class="banner-vs">
+            <img src="public/dc.png" alt="DC" class="banner-logo">
+          </h1>
+          <button class="btn-primary" onclick="showPage('buscar')">EXPLORAR HERÓIS</button>
+        </div>
+      </div>
+
+      <div class="heroes-section">
+        <h2 class="section-title">
+          <span class="title-accent"></span>
+          HERÓIS POPULARES
+        </h2>
+        <div class="hero-grid" id="heroGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Search ──────────────────────────── -->
+    <section id="buscar" class="page">
+      <div class="page-inner">
+        <h2 class="page-title">BUSCAR <span>HERÓI</span></h2>
+        <form id="searchForm" class="search-form">
+          <input type="text" id="searchInput" placeholder="Ex: Batman, Hulk, Spider-Man..." class="input-field" autocomplete="off">
+          <button type="submit" class="btn-primary">BUSCAR</button>
+        </form>
+        <div id="searchError" class="error-box" style="display:none"></div>
+        <div id="searchLoading" class="loading" style="display:none"><div class="spinner"></div></div>
+        <div id="searchResult" style="display:none"></div>
+      </div>
+    </section>
+
+    <!-- ── Battle ──────────────────────────── -->
+    <section id="batalha" class="page">
+      <div class="page-inner" style="max-width:1100px">
+        <h2 class="page-title">BATALHA <span>ÉPICA</span></h2>
+
+        <div class="battle-arena">
+          <div class="battle-panel">
+            <h3 class="panel-label">HERÓI 1</h3>
+            <form class="panel-form" onsubmit="searchBattleHero(1, event)">
+              <input type="text" id="battleInput1" placeholder="Nome do herói..." class="input-field">
+              <button type="submit" class="btn-primary" id="battleBtn1">BUSCAR</button>
+            </form>
+            <div id="battleHero1"></div>
+          </div>
+
+          <div class="battle-vs">
+            <span class="vs-text">VS</span>
+            <button class="btn-battle" id="battleStartBtn" onclick="startBattle()" disabled>⚔ BATALHAR</button>
+          </div>
+
+          <div class="battle-panel">
+            <h3 class="panel-label">HERÓI 2</h3>
+            <form class="panel-form" onsubmit="searchBattleHero(2, event)">
+              <input type="text" id="battleInput2" placeholder="Nome do herói..." class="input-field">
+              <button type="submit" class="btn-primary" id="battleBtn2">BUSCAR</button>
+            </form>
+            <div id="battleHero2"></div>
+          </div>
+        </div>
+
+        <div id="battleError" class="error-box" style="display:none"></div>
+        <div id="narrationBox" style="display:none"></div>
+      </div>
+    </section>
+
+    <!-- ── Quiz ────────────────────────────── -->
+    <section id="quiz" class="page">
+      <div class="page-inner">
+        <h2 class="page-title">QUIZ DE <span>TRIVIA</span></h2>
+        <form id="quizForm" class="search-form">
+          <input type="text" id="quizInput" placeholder="Ex: Spider-Man, Wonder Woman..." class="input-field" autocomplete="off">
+          <button type="submit" class="btn-primary" id="quizBtn">GERAR QUIZ</button>
+        </form>
+        <div id="quizError" class="error-box" style="display:none"></div>
+        <div id="quizLoading" class="loading" style="display:none"><div class="spinner"></div></div>
+        <div id="quizContent"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Hero Modal ────────────────────────── -->
+  <div id="heroModal" class="modal-overlay" style="display:none">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modalBody">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
