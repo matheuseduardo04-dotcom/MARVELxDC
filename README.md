@@ -1,10 +1,12 @@
 <p align="center">
-  <img src="frontend/public/banner.png" alt="Marvel x DC Banner" width="100%">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" alt="Marvel" height="60">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/VS-111111?style=for-the-badge" alt="VS">
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/DC_Comics_logo.svg" alt="DC" height="60">
 </p>
 
-<h1 align="center">
-  Marvel <img src="frontend/public/X.png" alt="x" width="28"> DC
-</h1>
+<h1 align="center">MARVEL × DC</h1>
 
 <p align="center">
   <b>Explore heróis, simule batalhas épicas narradas por IA e teste seus conhecimentos com quizzes interativos.</b>
@@ -152,3 +154,4 @@ A documentação interativa está disponível em **http://localhost:8000/docs** 
 <p align="center">
   Feito com <img src="https://img.shields.io/badge/❤-E62429?style=flat-square" alt="love"> e <img src="https://img.shields.io/badge/☕-F5A623?style=flat-square" alt="coffee"> por <b>Matheus</b>
 </p>
+
